@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int random()
+{
+
+    int hundreds, tens, ones;
+
+ do{
+ hundreds=rand()%9+1;
+ tens=rand()%9;
+ ones=rand()%9;
+ }while (hundreds == tens || hundreds == ones || tens == ones);
+
+
+return hundreds*100+tens*10+ones;
+
+
+
+}
+void tahmin()
+{
+    int c=random();
+    int number=0,sayac=0,puan=100;
+    printf("rastgele 3 basamakli sayi uretildi.tahmininizi giriniz:");
+
+    while(number!=c)
+    {
+        scanf("%d",&number);
+         if(number>c)
+         {
+    printf("buyuk girdiniz.daha kucuk bir sayi giriniz");
+    sayac++;
+      puan-=10;
+
+         }
+
+   if(number<c)
+   {
+  printf("kucuk girdiniz.daha buyuk bir sayi giriniz");
+  sayac++;
+  puan-=10;
+   }
+       }
+     if(number==c)
+     {
+         if(puan<0)
+            puan=0;
+    printf("tebrikler. sayiyi %d adimda dogru bildiniz\npuaniniz:%d",sayac,puan);
+   return 0;
+
+     }
+
+
+
+
+}
+
+
+
+
+int main()
+{
+   random();
+    tahmin();
+
+}
